@@ -4,123 +4,190 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Infinity Learning Center</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --primary: #0d47a1;
-      --secondary: #1976d2;
-      --light: #f5f7fa;
-      --text-dark: #222;
-      --text-light: #fff;
+      --primary: #1976d2;
+      --secondary: #42a5f5;
+      --bg-light: #f8fbff;
+      --text-dark: #1a1a1a;
+      --glass: rgba(255, 255, 255, 0.25);
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--light);
+      background: var(--bg-light);
       color: var(--text-dark);
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
     /* Banner */
     header {
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      color: var(--text-light);
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
       text-align: center;
-      padding: 2rem 1rem;
-      animation: slideDown 1s ease forwards;
-    }
-    header h1 {
-      font-size: 2.2rem;
-      letter-spacing: 2px;
-    }
-    header p {
-      font-size: 1.1rem;
-      margin-top: 0.5rem;
+      padding: 3rem 1rem;
+      position: relative;
+      overflow: hidden;
     }
 
-    /* Navigation bar */
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      animation: fadeSlide 1.5s ease forwards;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+      animation: fadeSlide 2s ease forwards;
+    }
+
+    /* Floating Nav */
     nav {
       display: flex;
       justify-content: center;
       gap: 1rem;
-      background: var(--secondary);
-      padding: 0.8rem;
+      background: var(--glass);
+      backdrop-filter: blur(12px);
+      padding: 0.8rem 1.2rem;
       position: sticky;
       top: 0;
       z-index: 1000;
+      border-radius: 0 0 20px 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     }
+
     nav a {
-      color: var(--text-light);
+      color: #fff;
+      font-weight: 500;
       text-decoration: none;
-      font-weight: bold;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-      transition: 0.3s;
+      padding: 0.5rem 1.2rem;
+      border-radius: 30px;
+      transition: all 0.3s ease;
     }
+
     nav a:hover {
-      background: var(--primary);
+      background: var(--secondary);
+      box-shadow: 0 0 12px rgba(66, 165, 245, 0.7);
       transform: scale(1.05);
     }
 
     /* Hero */
     .hero {
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      padding: 3rem 1rem;
-      background: linear-gradient(180deg, #e3f2fd, #fff);
-      animation: fadeIn 1.5s ease;
+      padding: 2rem;
+      background: linear-gradient(120deg, #e3f2fd, #ffffff);
     }
+
     .hero h2 {
-      font-size: 2rem;
+      font-size: 2.2rem;
       color: var(--primary);
       margin-bottom: 1rem;
+      animation: typewriter 3s steps(40) 1 normal both;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 3px solid var(--secondary);
     }
+
     .hero p {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       max-width: 700px;
+      margin: 1rem auto 2rem;
+      opacity: 0;
+      animation: fadeIn 2s 3s forwards;
+    }
+
+    .cta-btn {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      border: none;
+      padding: 0.9rem 1.8rem;
+      font-size: 1.1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 10px 20px rgba(25, 118, 210, 0.3);
+    }
+
+    /* Cards Section */
+    section {
+      padding: 4rem 1.5rem;
+      max-width: 1200px;
       margin: auto;
     }
 
-    /* Sections */
-    section {
-      padding: 3rem 1.5rem;
-      max-width: 1100px;
-      margin: auto;
-    }
-    section h3 {
+    h3 {
+      text-align: center;
       color: var(--primary);
-      margin-bottom: 1rem;
-      font-size: 1.6rem;
-      border-left: 4px solid var(--secondary);
-      padding-left: 8px;
+      margin-bottom: 2rem;
+      font-size: 1.8rem;
     }
-    .grid {
+
+    .cards {
       display: grid;
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
     }
-    @media(min-width:768px) {
-      .grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
+
+    .card {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    .card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.1);
     }
 
     /* Footer */
     footer {
       text-align: center;
-      padding: 1rem;
+      padding: 2rem;
       background: var(--primary);
-      color: var(--text-light);
-      margin-top: 2rem;
+      color: white;
+      margin-top: 3rem;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
     }
 
     /* Animations */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    @keyframes fadeSlide {
+      from {opacity:0; transform: translateY(-20px);}
+      to {opacity:1; transform: translateY(0);}
     }
-    @keyframes slideDown {
-      from { transform: translateY(-100%); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
+    @keyframes fadeIn {
+      from {opacity:0;}
+      to {opacity:1;}
+    }
+    @keyframes typewriter {
+      from {width: 0;}
+      to {width: 100%;}
     }
   </style>
 </head>
@@ -137,61 +204,51 @@
   </nav>
 
   <section class="hero">
-    <h2>Welcome to Infinity Learning Center</h2>
+    <h2>Unlock Your True Potential</h2>
     <p>
-      We provide smart classrooms with the best smart boards, CCTV monitoring, 
-      and a safe, engaging environment for effective learning.
+      Smart classrooms, expert faculty, and modern teaching methods — designed for academic and competitive success.
     </p>
+    <button class="cta-btn">Explore Programs</button>
   </section>
 
   <section>
-    <h3>Grades & Boards We Cater To</h3>
-    <p>
-      10th, 11th, 12th – CBSE, ICSE, ISC, HSC, IP, and Cambridge Boards.
-    </p>
-  </section>
-
-  <section>
-    <h3>Programs Offered</h3>
-    <ul>
-      <li>NEET, JEE, CET, Foundation Programs</li>
-      <li>Board Theory & Competitive Preparation</li>
-      <li>Regular Tests – Boards & MCQs</li>
-    </ul>
-  </section>
-
-  <section>
-    <h3>Why Choose Infinity?</h3>
-    <div class="grid">
-      <div>
-        <p><strong>Personalized Attention:</strong> Small batches of 12–15 students.</p>
-        <p><strong>Engaging Methods:</strong> Interactive sessions, smart boards, audio-visual aids.</p>
-        <p><strong>Expert Faculty:</strong> Experienced teachers with proven results.</p>
-      </div>
-      <div>
-        <p><strong>PTMs & Tracking:</strong> Regular meetings, attendance tracking for parents.</p>
-        <p><strong>Hybrid Learning:</strong> Attend in-class or online from home.</p>
-        <p><strong>Dedicated Doubt Sessions:</strong> Personalized support whenever needed.</p>
-      </div>
+    <h3>Programs We Offer</h3>
+    <div class="cards">
+      <div class="card"><h4>Board Exams</h4><p>CBSE, ICSE, ISC, HSC, IP & Cambridge Boards.</p></div>
+      <div class="card"><h4>Competitive Exams</h4><p>NEET, JEE, CET & Foundation Programs.</p></div>
+      <div class="card"><h4>Subjects</h4><p>Physics, Chemistry, Math, Biology, Accounts, Commerce.</p></div>
+      <div class="card"><h4>Learning Style</h4><p>Hybrid classes (online/offline), small batches, doubt sessions.</p></div>
     </div>
   </section>
 
   <section>
-    <h3>Subjects We Offer</h3>
-    <p>
-      Physics, Chemistry, Mathematics, Biology, Accounts, Commerce.
-    </p>
-  </section>
-
-  <section>
-    <h3>Resources & Facilities</h3>
-    <p>
-      Access to a library with reference books and study materials for better learning.
-    </p>
+    <h3>Why Choose Infinity?</h3>
+    <div class="cards">
+      <div class="card"><p>🎯 Personalized attention in small batches (12–15 students).</p></div>
+      <div class="card"><p>📊 Regular tests — theory + MCQs.</p></div>
+      <div class="card"><p>👨‍🏫 Expert faculty with years of experience.</p></div>
+      <div class="card"><p>📚 Library access with reference books & resources.</p></div>
+    </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 Infinity Learning Center. All rights reserved.</p>
+    <p>&copy; 2025 Infinity Learning Center. All Rights Reserved.</p>
   </footer>
+
+  <script>
+    // Scroll Reveal Animation
+    const cards = document.querySelectorAll('.card');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = 'translateY(0)';
+          entry.target.style.transition = 'all 0.8s ease';
+        }
+      });
+    }, { threshold: 0.2 });
+
+    cards.forEach(card => observer.observe(card));
+  </script>
 </body>
 </html>
