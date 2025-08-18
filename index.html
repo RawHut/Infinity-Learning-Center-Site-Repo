@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Infinity Learning Center</title>
+  <style>
+    :root {
+      --primary: #0d47a1;
+      --secondary: #1976d2;
+      --light: #f5f7fa;
+      --text-dark: #222;
+      --text-light: #fff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    /* Banner */
+    header {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      color: var(--text-light);
+      text-align: center;
+      padding: 2rem 1rem;
+      animation: slideDown 1s ease forwards;
+    }
+    header h1 {
+      font-size: 2.2rem;
+      letter-spacing: 2px;
+    }
+    header p {
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+    }
+
+    /* Navigation bar */
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      background: var(--secondary);
+      padding: 0.8rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      background: var(--primary);
+      transform: scale(1.05);
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 3rem 1rem;
+      background: linear-gradient(180deg, #e3f2fd, #fff);
+      animation: fadeIn 1.5s ease;
+    }
+    .hero h2 {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    /* Sections */
+    section {
+      padding: 3rem 1.5rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+    section h3 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: 1.6rem;
+      border-left: 4px solid var(--secondary);
+      padding-left: 8px;
+    }
+    .grid {
+      display: grid;
+      gap: 1rem;
+    }
+    @media(min-width:768px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: var(--primary);
+      color: var(--text-light);
+      margin-top: 2rem;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Infinity Learning Center</h1>
+    <p>Empowering minds for a brighter tomorrow</p>
+  </header>
+
+  <nav>
+    <a href="#">About Us</a>
+    <a href="#">Contact Us</a>
+    <a href="#">Student Section</a>
+  </nav>
+
+  <section class="hero">
+    <h2>Welcome to Infinity Learning Center</h2>
+    <p>
+      We provide smart classrooms with the best smart boards, CCTV monitoring, 
+      and a safe, engaging environment for effective learning.
+    </p>
+  </section>
+
+  <section>
+    <h3>Grades & Boards We Cater To</h3>
+    <p>
+      10th, 11th, 12th – CBSE, ICSE, ISC, HSC, IP, and Cambridge Boards.
+    </p>
+  </section>
+
+  <section>
+    <h3>Programs Offered</h3>
+    <ul>
+      <li>NEET, JEE, CET, Foundation Programs</li>
+      <li>Board Theory & Competitive Preparation</li>
+      <li>Regular Tests – Boards & MCQs</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Why Choose Infinity?</h3>
+    <div class="grid">
+      <div>
+        <p><strong>Personalized Attention:</strong> Small batches of 12–15 students.</p>
+        <p><strong>Engaging Methods:</strong> Interactive sessions, smart boards, audio-visual aids.</p>
+        <p><strong>Expert Faculty:</strong> Experienced teachers with proven results.</p>
+      </div>
+      <div>
+        <p><strong>PTMs & Tracking:</strong> Regular meetings, attendance tracking for parents.</p>
+        <p><strong>Hybrid Learning:</strong> Attend in-class or online from home.</p>
+        <p><strong>Dedicated Doubt Sessions:</strong> Personalized support whenever needed.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h3>Subjects We Offer</h3>
+    <p>
+      Physics, Chemistry, Mathematics, Biology, Accounts, Commerce.
+    </p>
+  </section>
+
+  <section>
+    <h3>Resources & Facilities</h3>
+    <p>
+      Access to a library with reference books and study materials for better learning.
+    </p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Infinity Learning Center. All rights reserved.</p>
+  </footer>
+</body>
+</html>
