@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Meet Our Faculty</title>
+  <style>
+    /* Google Font */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f5f6fa;
+      color: #1c1c3c;
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px 20px;
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #243c94;
+    }
+
+    header h2 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #3a3a6a;
+    }
+
+    /* Faculty container */
+    .faculty-container {
+      max-width: 1000px;
+      margin: 50px auto;
+      display: grid;
+      gap: 30px;
+      padding: 0 20px;
+    }
+
+    /* Faculty Card */
+    .faculty-card {
+      display: flex;
+      align-items: center;
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    .faculty-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+    }
+
+    .faculty-card img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 25px;
+      border: 5px solid #243c94;
+    }
+
+    .faculty-info h3 {
+      margin: 0;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #243c94;
+    }
+
+    .faculty-info p {
+      margin: 5px 0;
+      line-height: 1.5;
+      font-size: 0.95rem;
+      color: #333;
+    }
+
+    /* Animated background shapes */
+    .shape {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.15;
+      z-index: 0;
+    }
+
+    .shape.one {
+      width: 200px;
+      height: 200px;
+      background: #243c94;
+      top: -60px;
+      left: -60px;
+      animation: float 6s infinite ease-in-out alternate;
+    }
+
+    .shape.two {
+      width: 150px;
+      height: 150px;
+      background: #3a3a6a;
+      bottom: -40px;
+      right: -40px;
+      animation: float 8s infinite ease-in-out alternate-reverse;
+    }
+
+    @keyframes float {
+      from { transform: translateY(0); }
+      to { transform: translateY(30px); }
+    }
+
+    /* Responsive */
+    @media(max-width: 768px) {
+      .faculty-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+      }
+      .faculty-card img {
+        margin: 0 0 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="shape one"></div>
+    <div class="shape two"></div>
+    <h1>Meet Our Faculty</h1>
+    <h2>Know Your Teachers</h2>
+  </header>
+
+  <main class="faculty-container">
+    <!-- Amit Sir -->
+    <div class="faculty-card">
+      <img src="https://via.placeholder.com/120" alt="Amit Sir">
+      <div class="faculty-info">
+        <h3>Amit Sir (Physics Faculty)</h3>
+        <p>12 years of teaching experience.<br>
+        Expertise in board paper setting and evaluation.<br>
+        Qualifications: M.Sc (Physics), B.Ed, Ph.D (Pursuing).</p>
+      </div>
+    </div>
+
+    <!-- Saad Sir -->
+    <div class="faculty-card">
+      <img src="https://via.placeholder.com/120" alt="Saad Sir">
+      <div class="faculty-info">
+        <h3>Saad Sir (Maths Faculty)</h3>
+        <p>5 years of teaching experience.<br>
+        Qualifications: M.Sc (Maths), M.Ed.</p>
+      </div>
+    </div>
+
+    <!-- Sheetal Ma’am -->
+    <div class="faculty-card">
+      <img src="https://via.placeholder.com/120" alt="Sheetal Ma’am">
+      <div class="faculty-info">
+        <h3>Sheetal Ma’am (Chemistry Faculty)</h3>
+        <p>17 years of teaching experience.<br>
+        University Topper in CHEMIAD Exam.<br>
+        Qualifications: M.Sc (Organic Chemistry), B.Ed.</p>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
