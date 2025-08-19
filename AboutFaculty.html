@@ -15,10 +15,45 @@
       overflow-x: hidden;
     }
 
+    /* Navbar */
+    nav {
+      background: #243c94;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav .logo {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: white;
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 25px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      font-weight: 500;
+      color: white;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover,
+    nav ul li a.active {
+      color: #ffd43b;
+    }
+
     header {
       text-align: center;
       padding: 60px 20px 20px;
       position: relative;
+      overflow: hidden;
     }
 
     header h1 {
@@ -35,9 +70,10 @@
 
     /* Faculty container */
     .faculty-container {
-      max-width: 1000px;
+      max-width: 1200px;
       margin: 50px auto;
       display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 30px;
       padding: 0 20px;
     }
@@ -52,7 +88,14 @@
       box-shadow: 0 6px 18px rgba(0,0,0,0.08);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       position: relative;
-      z-index: 1;
+      opacity: 0; /* for animation */
+      transform: translateY(40px);
+    }
+
+    .faculty-card.show {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.8s ease-out;
     }
 
     .faculty-card:hover {
@@ -67,10 +110,11 @@
       object-fit: cover;
       margin-right: 25px;
       border: 5px solid #243c94;
+      flex-shrink: 0;
     }
 
     .faculty-info h3 {
-      margin: 0;
+      margin: 0 0 8px;
       font-size: 1.3rem;
       font-weight: 600;
       color: #243c94;
@@ -114,8 +158,12 @@
       to { transform: translateY(30px); }
     }
 
-    /* Responsive */
+    /* Responsive tweaks */
     @media(max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 10px;
+      }
       .faculty-card {
         flex-direction: column;
         text-align: center;
@@ -128,6 +176,17 @@
   </style>
 </head>
 <body>
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">Infinity Learning</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="faculty.html" class="active">Faculty</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header -->
   <header>
     <div class="shape one"></div>
     <div class="shape two"></div>
@@ -135,6 +194,7 @@
     <h2>Know Your Teachers</h2>
   </header>
 
+  <!-- Faculty Section -->
   <main class="faculty-container">
     <!-- Amit Sir -->
     <div class="faculty-card">
@@ -168,5 +228,22 @@
       </div>
     </div>
   </main>
+
+  <script>
+    // Scroll reveal animation
+    const cards = document.querySelectorAll('.faculty-card');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    cards.forEach(card => {
+      observer.observe(card);
+    });
+  </script>
 </body>
 </html>
