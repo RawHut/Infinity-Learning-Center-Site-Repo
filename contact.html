@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Us | Infinity Learning Center</title>
+  <meta name="description" content="Contact Infinity Learning Center for location, phone numbers, and business hours in Pune.">
   <style>
     body {
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -78,6 +79,16 @@
         font-size: 1.4rem;
       }
     }
+    /* Additional Mobile Tweaks (Point 3) */
+    @media (max-width: 400px) {
+      .pill {
+        font-size: 0.8rem;
+        padding: 0.3rem 0.8rem;
+      }
+      .contact-card {
+        padding: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -88,20 +99,21 @@
   <div class="container">
     <div class="contact-card">
       <h3>Visit Us:</h3>
-      <p>
+      <address>
         <a href="https://maps.app.goo.gl/FMi4J6w9R9gjNUMNA" target="_blank">
           Pragati Serene, near MAJESTIQUE EURISKA, Mohammed Wadi, Pune 411060
         </a>
-      </p>
+      </address>
       <p><strong>Phone:</strong></p>
       <ul>
-        <li><a href="tel:+917709997802">+91-7709997802</a></li>
-        <li><a href="tel:+919130200497">+91-9130200497</a></li>
-        <li><a href="tel:+919325338288">+91-9325338288</a></li>
+        <li><a href="tel:+917709997802" aria-label="Call +91-7709997802">+91-7709997802</a></li>
+        <li><a href="tel:+919130200497" aria-label="Call +91-9130200497">+91-9130200497</a></li>
+        <li><a href="tel:+919325338288" aria-label="Call +91-9325338288">+91-9325338288</a></li>
       </ul>
       <div style="margin-top:.8rem">
         <span class="pill">We Are Open !</span>
-        <p>Mon–Sun: 3:00 Pm – 9:00 PM</p>
+        <p>Mon–Sat : 3:00 Pm – 9:00 PM</p>
+        <p>Sunday : 10 Am - 5 Pm</p>
       </div>
     </div>
   </div>
