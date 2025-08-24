@@ -75,17 +75,24 @@
       padding: 0 20px;
     }
 
-    .faculty-card {
-      display: flex;
-      align-items: center;
-      background: white;
-      border-radius: 15px;
-      padding: 20px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
-      opacity: 0;
-      transform: translateY(40px);
+    @media(max-width: 768px) {
+  .faculty-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .faculty-card {
+    width: 90%;
+    max-width: 400px;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .faculty-card img {
+    margin: 0 0 15px;
+  }
     }
 
     .faculty-card.show {
@@ -97,16 +104,6 @@
     .faculty-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 12px 24px rgba(0,0,0,0.12);
-    }
-
-    .faculty-card img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-right: 25px;
-      border: 5px solid #243c94;
-      flex-shrink: 0;
     }
 
     .faculty-info h3 {
@@ -198,7 +195,6 @@
       <div class="faculty-info">
         <h3>Amit Ghorpade (Physics Faculty)</h3>
         <ul>
-          <li>Expertise in board paper setting and evaluation</li>
           <li>Qualifications: M.Sc (Physics), B.Ed, Ph.D (Pursuing)</li>
           <li>12 Years Of Teaching Experience</li>
         </ul>
