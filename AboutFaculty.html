@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Meet Our Faculty</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
@@ -75,24 +76,17 @@
       padding: 0 20px;
     }
 
-    @media(max-width: 768px) {
-  .faculty-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .faculty-card {
-    width: 90%;
-    max-width: 400px;
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .faculty-card img {
-    margin: 0 0 15px;
-  }
+    .faculty-card {
+      display: flex;
+      align-items: center;
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      opacity: 0;
+      transform: translateY(40px);
     }
 
     .faculty-card.show {
@@ -104,6 +98,16 @@
     .faculty-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+    }
+
+    .faculty-card img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 25px;
+      border: 5px solid #243c94;
+      flex-shrink: 0;
     }
 
     .faculty-info h3 {
@@ -156,15 +160,23 @@
       to { transform: translateY(30px); }
     }
 
+    /* Mobile Fix */
     @media(max-width: 768px) {
       nav {
         flex-direction: column;
         gap: 10px;
       }
+      .faculty-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
       .faculty-card {
         flex-direction: column;
         text-align: center;
-        padding: 30px 20px;
+        width: 90%;
+        max-width: 400px;
       }
       .faculty-card img {
         margin: 0 0 15px;
@@ -189,19 +201,18 @@
   </header>
 
   <main class="faculty-container">
-    <!-- Amit Sir -->
     <div class="faculty-card">
       <img src="F1.png" alt="Amit Sir">
       <div class="faculty-info">
         <h3>Amit Ghorpade (Physics Faculty)</h3>
         <ul>
+          <li>Expertise in board paper setting and evaluation</li>
           <li>Qualifications: M.Sc (Physics), B.Ed, Ph.D (Pursuing)</li>
           <li>12 Years Of Teaching Experience</li>
         </ul>
       </div>
     </div>
 
-    <!-- Saad Sir -->
     <div class="faculty-card">
       <img src="F2.jpg" alt="Saad Sir">
       <div class="faculty-info">
@@ -213,7 +224,6 @@
       </div>
     </div>
 
-    <!-- Sheetal Ma’am -->
     <div class="faculty-card">
       <img src="F3.webp" alt="Sheetal Ma’am">
       <div class="faculty-info">
