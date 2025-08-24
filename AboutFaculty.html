@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>Meet Our Faculty</title>
   <style>
-    /* Google Font */
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
     body {
@@ -15,7 +14,6 @@
       overflow-x: hidden;
     }
 
-    /* Navbar */
     nav {
       background: #243c94;
       padding: 15px 30px;
@@ -68,7 +66,6 @@
       color: #3a3a6a;
     }
 
-    /* Faculty container */
     .faculty-container {
       max-width: 1200px;
       margin: 50px auto;
@@ -78,7 +75,6 @@
       padding: 0 20px;
     }
 
-    /* Faculty Card */
     .faculty-card {
       display: flex;
       align-items: center;
@@ -88,7 +84,7 @@
       box-shadow: 0 6px 18px rgba(0,0,0,0.08);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       position: relative;
-      opacity: 0; /* for animation */
+      opacity: 0;
       transform: translateY(40px);
     }
 
@@ -120,14 +116,19 @@
       color: #243c94;
     }
 
-    .faculty-info p {
-      margin: 5px 0;
-      line-height: 1.5;
-      font-size: 0.95rem;
+    .faculty-info ul {
+      margin: 10px 0 0;
+      padding-left: 20px;
+      list-style-type: disc;
       color: #333;
+      font-size: 0.95rem;
+      line-height: 1.5;
     }
 
-    /* Animated background shapes */
+    .faculty-info ul li {
+      margin-bottom: 6px;
+    }
+
     .shape {
       position: absolute;
       border-radius: 50%;
@@ -158,7 +159,6 @@
       to { transform: translateY(30px); }
     }
 
-    /* Responsive tweaks */
     @media(max-width: 768px) {
       nav {
         flex-direction: column;
@@ -176,7 +176,6 @@
   </style>
 </head>
 <body>
-  <!-- Navigation -->
   <nav>
     <div class="logo">Infinity Learning</div>
     <ul>
@@ -185,7 +184,6 @@
     </ul>
   </nav>
 
-  <!-- Header -->
   <header>
     <div class="shape one"></div>
     <div class="shape two"></div>
@@ -193,44 +191,48 @@
     <h2>Know Your Teachers</h2>
   </header>
 
-  <!-- Faculty Section -->
   <main class="faculty-container">
     <!-- Amit Sir -->
-<div class="faculty-card">
-  <img src="F1.png" alt="Amit Sir">
-  <div class="faculty-info">
-    <h3>Amit Ghorpade (Physics Faculty)</h3>
-    <p>Expertise in board paper setting and evaluation.<br>
-    Qualifications: M.Sc (Physics), B.Ed, Ph.D (Pursuing).<br>
-    12 Years Of Teaching Experience</p>
-  </div>
-</div>
+    <div class="faculty-card">
+      <img src="F1.png" alt="Amit Sir">
+      <div class="faculty-info">
+        <h3>Amit Ghorpade (Physics Faculty)</h3>
+        <ul>
+          <li>Expertise in board paper setting and evaluation</li>
+          <li>Qualifications: M.Sc (Physics), B.Ed, Ph.D (Pursuing)</li>
+          <li>12 Years Of Teaching Experience</li>
+        </ul>
+      </div>
+    </div>
 
-<!-- Saad Sir -->
-<div class="faculty-card">
-  <img src="F2.jpg" alt="Saad Sir">
-  <div class="faculty-info">
-    <h3>Saad Sir (Maths Faculty)</h3>
-    <p>5 years of teaching experience.<br>
-    Qualifications: M.Sc (Maths), M.Ed.</p>
-  </div>
-</div>
+    <!-- Saad Sir -->
+    <div class="faculty-card">
+      <img src="F2.jpg" alt="Saad Sir">
+      <div class="faculty-info">
+        <h3>Saad Sir (Maths Faculty)</h3>
+        <ul>
+          <li>5 years of teaching experience</li>
+          <li>Qualifications: M.Sc (Maths), M.Ed</li>
+        </ul>
+      </div>
+    </div>
 
-<!-- Sheetal Ma’am -->
-<div class="faculty-card">
-  <img src="F3.webp" alt="Sheetal Ma’am">
-  <div class="faculty-info">
-    <h3>Sheetal Ma’am (Chemistry Faculty)</h3>
-    <p>17 years of teaching experience.<br>
-    University Topper in CHEMIAD Exam.<br>
-    Qualifications: M.Sc (Organic Chemistry), B.Ed.</p>
-  </div>
-</div>
+    <!-- Sheetal Ma’am -->
+    <div class="faculty-card">
+      <img src="F3.webp" alt="Sheetal Ma’am">
+      <div class="faculty-info">
+        <h3>Sheetal Ma’am (Chemistry Faculty)</h3>
+        <ul>
+          <li>17 years of teaching experience</li>
+          <li>University Topper in CHEMIAD Exam</li>
+          <li>Qualifications: M.Sc (Organic Chemistry), B.Ed</li>
+        </ul>
+      </div>
+    </div>
+  </main>
 
   <script>
-    // Scroll reveal animation
     const cards = document.querySelectorAll('.faculty-card');
-
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if(entry.isIntersecting){
